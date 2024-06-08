@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegación Responsive con Video de Fondo y Carrusel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">HP</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Proyects</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <div class="video-container">
+        <div class="video-container">
+    <video autoplay muted loop id="bgVideo">
+        <source src="fondo.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
+        <div class="overlay">
+            </div>
+        <div class="content">
+            <h1>Hewlett-Packard</h1>
+            <p>Keep Reinventing</p>
+            <button class="boton-elegante">Learn More</button>
+        </div>
+    </div>
+        </div>
+    
+
+    <div class="motivational-text">
+        <h2>P R O Y E C T S</h2>
+    </div>
+
+    <div class="carousel">
+        <div class="carousel-track">
+            <div class="carousel-item">
+                <img src="image1.jpg" alt="Imagen 1">
+            </div>
+            <div class="carousel-item">
+                <img src="image2.jpg" alt="Imagen 2">
+            </div>
+            <div class="carousel-item">
+                <img src="image3.jpg" alt="Imagen 3">
+            </div>
+            <div class="carousel-item">
+                <img src="image3.jpg" alt="Imagen 4">
+            </div>
+            <div class="carousel-item">
+                <img src="image3.jpg" alt="Imagen 5">
+            </div>
+            <div class="carousel-item">
+                <img src="image3.jpg" alt="Imagen 6">
+            </div>
+            <!-- Puedes agregar más elementos del carrusel aquí -->
+        </div>
+    </div>
+
+
+    <div class="motivational-text">
+        <h2>H E L P</h2>
+    </div>
+
+
+    <section class="text-image-section">
+    <div class="text-content">
+        <p>HP strives to create innovative and accessible technology that enhances people's lives worldwide. With over 80 years of experience, our mission is to provide reliable solutions that drive a sustainable future and empower global communities.
+            <br><br><button class="boton-elegante">Learn More</button></p>
+    </div>
+    <div class="image-content">
+        <img src="hp.jpg" alt="Descripción de la imagen">
+    </div>
+    </section>
+
+
+
+    <section class="text-image-section2">
+        <div class="image-content2">
+            <img src="hp.jpg" alt="Descripción de la imagen">
+        </div>
+        <div class="text-content2">
+            <p>HP strives to create innovative and accessible technology that enhances people's lives worldwide. With over 80 years of experience, our mission is to provide reliable solutions that drive a sustainable future and empower global communities.
+                <br><br><button class="boton-elegante">Learn More</button></p>
+        </div>
+    </section>
+
+
+    <div class="motivational-text">
+        <h2>C O N T A C T</h2>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Logo de la Empresa" class="logo">
+            <h1>Contact Us</h1>
+        </div>
+        <form action="#" method="post">
+            <div class="form-columns">
+                <div class="form-left">
+                    <div class="form-group">
+                        <input type="text" id="nombre" name="nombre" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="apellido" name="apellido" placeholder="Last Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="asunto" name="asunto" placeholder="Subjet" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                </div>
+                <div class="form-right">
+                    <div class="form-group">
+                        <textarea id="mensaje" name="mensaje" rows="10" placeholder="Your inquiry here..." required></textarea>
+                    </div>
+                </div>
+            </div>
+            <center><button class="boton-elegante">Submit</button></center>
+        </form>
+    </div>
+
+
+<footer>
+        <div class="column">
+            <h3>Explore</h3>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Proyects</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Legal</h3>
+            <ul>
+                <li>Terms</li>
+                <li>Privacy</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        © 2024 Your Company Name. All rights reserved.
+    </div>
+
+
+
+
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Menú de hamburguesa
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-links li');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        links.forEach((link, index) => {
+            if (link.style.animation) {
+                link.style.animation = '';
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+            }
+        });
+        hamburger.classList.toggle('toggle');
+    });
+
+    // Carrusel
+    const track = document.querySelector('.carousel-track');
+    const items = document.querySelectorAll('.carousel-item');
+    const totalWidth = Array.from(items).reduce((acc, item) => acc + item.getBoundingClientRect().width, 0);
+    let position = 0;
+
+    function moveCarousel() {
+        position -= 0.5; // Velocidad de movimiento (más pequeño para movimiento más lento)
+        if (Math.abs(position) >= totalWidth) {
+            position = 0;
+        }
+        track.style.transform = `translateX(${position}px)`;
+        requestAnimationFrame(moveCarousel);
+    }
+
+    moveCarousel();
+});
+
+    </script>
+</body>
+</html>
