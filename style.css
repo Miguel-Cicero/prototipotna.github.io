@@ -271,16 +271,15 @@ nav {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    height: 70vh; /* Altura completa de la pantalla */
-    font-family: Helvetica;
-    font-style: normal;
+    height: 70vh; /* Altura del 70% de la pantalla */
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 25px;
     color: white;
 }
 
 .text-image-section .text-content,
 .text-image-section .image-content {
-    flex: 1 1 50%; /* Ocupa el 50% de la pantalla */
+    flex: 1 1 50%; /* Ocupa el 50% del ancho */
     display: flex;
     align-items: center; /* Centra verticalmente */
     justify-content: center; /* Centra horizontalmente */
@@ -305,11 +304,12 @@ nav {
 @media (max-width: 768px) {
     .text-image-section {
         flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        height: auto; /* Ajusta la altura automáticamente */
     }
 
     .text-image-section .text-content,
     .text-image-section .image-content {
-        flex: 1 1 100%; /* Ocupa el 100% de la pantalla */
+        flex: 1 1 100%; /* Ocupa el 100% del ancho */
     }
 }
 
@@ -318,16 +318,15 @@ nav {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    height: 100vh; /* Altura completa de la pantalla */
-    font-family: Helvetica;
-    font-style: normal;
+    height: 70vh; /* Altura del 70% de la pantalla */
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 25px;
     color: white;
 }
 
 .text-image-section2 .text-content2,
 .text-image-section2 .image-content2 {
-    flex: 1 1 50%; /* Ocupa el 50% de la pantalla */
+    flex: 1 1 50%; /* Ocupa el 50% del ancho */
     display: flex;
     align-items: center; /* Centra verticalmente */
     justify-content: center; /* Centra horizontalmente */
@@ -352,11 +351,12 @@ nav {
 @media (max-width: 768px) {
     .text-image-section2 {
         flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        height: auto; /* Ajusta la altura automáticamente */
     }
 
     .text-image-section2 .text-content2,
     .text-image-section2 .image-content2 {
-        flex: 1 1 100%; /* Ocupa el 100% de la pantalla */
+        flex: 1 1 100%; /* Ocupa el 100% del ancho */
     }
 }
 
@@ -431,7 +431,7 @@ input[type="email"]{
 }
 
 textarea{
-    width: 90%;
+    width: 80%;
     border: none;
     font-size: 16px;
     padding: 10px;
@@ -459,7 +459,7 @@ input:focus, textarea:focus {
     }
 
     textarea{
-        width: 190%;
+        width: 150%;
     }
 }
 
