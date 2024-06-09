@@ -99,11 +99,15 @@
     </section>
 
 
-    <div class="motivational-text" id="contact">
-        <h2>C O N T A C T</h2>
-    </div>
+    
 
     <div class="container">
+
+        <div class="motivational-text" id="contact" style="background-color: white;">
+            <h2 style="color: black !important;">C O N T A C T</h2>
+        </div>
+
+
         <div class="header">
             <img src="logo.png" alt="Logo de la Empresa" class="logo">
             <h1>Contact Us</h1>
@@ -206,18 +210,32 @@ document.addEventListener("DOMContentLoaded", function() {
     moveCarousel();
 });
 
-// Obtén el contenedor del carrusel
-const carouselTrack = document.querySelector('.carousel-track');
 
-// Clona los elementos del carrusel y los inserta al final
-function duplicateItems() {
-    const carouselItems = carouselTrack.querySelectorAll('.carousel-item');
-    const cloneItems = Array.from(carouselItems).map(item => item.cloneNode(true));
-    cloneItems.forEach(clone => carouselTrack.appendChild(clone));
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track');
+    const items = Array.from(document.querySelectorAll('.carousel-item'));
+    const totalWidth = items.reduce((acc, item) => acc + item.getBoundingClientRect().width, 0);
+    
+    // Clonar todos los elementos del carrusel y añadirlos al final del track
+    items.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+    });
 
-// Ejecuta la función para duplicar elementos
-duplicateItems();
+    let position = 0;
+    const resetPoint = -totalWidth;
+
+    function moveCarousel() {
+        position -= 0.5; // Velocidad de movimiento (más pequeño para movimiento más lento)
+        if (position <= resetPoint) {
+            position = 0;
+        }
+        track.style.transform = `translateX(${position}px)`;
+        requestAnimationFrame(moveCarousel);
+    }
+
+    moveCarousel();
+});
 
 
 // SCRIPT PARA EL NAV Y QUE LA WEB BAJE A MEDIDA QUE SE HACE CLICK EN LOS <a>
