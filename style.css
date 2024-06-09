@@ -48,8 +48,40 @@ nav {
     transition: color 0.3s ease;
 }
 
+.nav-links li {
+    margin: 0px;
+    margin-right: 30px;
+    position: relative; /* Asegúrate de que el li tenga posición relativa para posicionar correctamente el pseudoelemento */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    display: block; /* Hace que el enlace llene el <li> para que el área de hover sea más grande */
+}
+
 .nav-links a:hover {
-    color: #007BFF;
+    color: white;
+}
+
+.nav-links li::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Ajusta según la distancia deseada del texto al subrayado */
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: white; /* Color de la línea */
+    transform: scaleX(0); /* Inicia sin escalar en el eje X */
+    transform-origin: bottom right; /* Comienza la transformación desde la derecha */
+    transition: transform 0.3s ease;
+}
+
+.nav-links li:hover::after {
+    transform: scaleX(1); /* Escala a tamaño completo cuando se hace hover */
+    transform-origin: bottom left; /* Termina la transformación desde la izquierda */
 }
 
 /* Estilos para la hamburguesa */
@@ -183,40 +215,19 @@ nav {
 }
 
 .custom-button {
-    position: relative;
     padding: 15px 30px;
     color: white;
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 2px solid transparent;
-    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: solid 1px white;
     font-size: 16px;
     cursor: pointer;
-    overflow: hidden;
-    z-index: 0;
-    transition: color 0.4s;
-}
-
-.custom-button:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 25px;
-    border: 2px solid white;
-    transform: scaleX(0);
-    transform-origin: 0 0;
-    transition: transform 0.4s;
-    z-index: -1;
-}
-
-.custom-button:hover:before {
-    transform: scaleX(1);
+    position: relative;
+    transition: 0.3s;
 }
 
 .custom-button:hover {
-    color: white;
+    border: solid 1px grey;
+    color: grey;
 }
 
 /* Estilos para el texto motivador */
@@ -233,39 +244,6 @@ nav {
     font-size: 30px;
     color: white;
 }
-
-/* Boton para el inicio */
-.boton-elegante {
-    padding: 10px 35px;
-    font-size: 16px;
-    font-family: Helvetica;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: white;
-    background-color: #007BFF;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.boton-elegante:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
-.boton-elegante:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(0,123,255,0.5);
-}
-
-.boton-elegante:active {
-    transform: scale(0.95);
-}
-
-
-
-
 
 .carousel {
     position: relative;
@@ -301,18 +279,20 @@ nav {
     transform: scale(1.1); /* Agrandar imagen al hacer hover */
 }
 
+
+
 /* Estilo para el botón */
 .plus-button {
     position: absolute;
     top: 10px; /* Ajusta según sea necesario */
     right: 10px; /* Ajusta según sea necesario */
-    background-color: #0056b3;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
     color: white;
     border: none;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
+    width: 35px;
+    height: 35px;
+    font-size: 23px;
     display: none; /* Ocultar botón por defecto */
     align-items: center;
     justify-content: center;
@@ -320,7 +300,8 @@ nav {
 }
 
 .plus-button:hover {
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    background-color: white;
+    color: black;
 }
 
 .carousel-item:hover .plus-button {

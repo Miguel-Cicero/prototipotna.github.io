@@ -34,7 +34,7 @@
         <div class="content">
             <h1>Hewlett-Packard</h1>
             <p>Keep Reinventing</p>
-            <button class="boton-elegante">Learn More</button>
+            <button class="custom-button">Learn More</button>
         </div>
     </div>
         </div>
@@ -83,7 +83,7 @@
     <section class="text-image-section">
     <div class="text-content">
         <p>HP strives to create innovative and accessible technology that enhances people's lives worldwide. With over 80 years of experience, our mission is to provide reliable solutions that drive a sustainable future and empower global communities.
-            <br><br><button class="boton-elegante">Learn More</button></p>
+            <br><br><button class="custom-button">Learn More</button></p>
     </div>
     <div class="image-content">
         <img src="hp.jpg" alt="Descripción de la imagen">
@@ -98,7 +98,7 @@
         </div>
         <div class="text-content2">
             <p>HP strives to create innovative and accessible technology that enhances people's lives worldwide. With over 80 years of experience, our mission is to provide reliable solutions that drive a sustainable future and empower global communities.
-                <br><br><button class="boton-elegante">Learn More</button></p>
+                <br><br><button class="custom-button">Learn More</button></p>
         </div>
     </section>
 
@@ -134,7 +134,7 @@
                     </div>
                 </div>
             </div>
-            <center><button class="boton-elegante">Submit</button></center>
+            <center><button class="custom-button">Submit</button></center>
         </form>
     </div>
 
@@ -210,6 +210,21 @@ document.addEventListener("DOMContentLoaded", function() {
     moveCarousel();
 });
 
+// Obtén el contenedor del carrusel
+const carouselTrack = document.querySelector('.carousel-track');
+
+// Clona los elementos del carrusel y los inserta al final
+function duplicateItems() {
+    const carouselItems = carouselTrack.querySelectorAll('.carousel-item');
+    const cloneItems = Array.from(carouselItems).map(item => item.cloneNode(true));
+    cloneItems.forEach(clone => carouselTrack.appendChild(clone));
+}
+
+// Ejecuta la función para duplicar elementos
+duplicateItems();
+
+
+// SCRIPT PARA EL NAV Y QUE LA WEB BAJE A MEDIDA QUE SE HACE CLICK EN LOS <a>
 document.addEventListener('DOMContentLoaded', function () {
     const links = document.querySelectorAll('.nav-links a');
 
