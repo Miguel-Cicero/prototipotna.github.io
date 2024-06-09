@@ -236,7 +236,7 @@ nav {
     margin: 0px auto;
     overflow: hidden;
     z-index: 1;
-    height:auto; /* Altura del carrusel */
+    height: auto; /* Altura del carrusel */
 }
 
 .carousel-track {
@@ -246,6 +246,7 @@ nav {
 }
 
 .carousel-item {
+    position: relative; /* Necesario para posicionar el botón */
     min-width: auto;
     margin-right: 2%; /* Reducir separación entre imágenes */
     transition: transform 0.5s ease;
@@ -263,7 +264,31 @@ nav {
     transform: scale(1.1); /* Agrandar imagen al hacer hover */
 }
 
+/* Estilo para el botón */
+.plus-button {
+    position: absolute;
+    top: 10px; /* Ajusta según sea necesario */
+    right: 10px; /* Ajusta según sea necesario */
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    display: none; /* Ocultar botón por defecto */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
 
+.plus-button:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+}
+
+.carousel-item:hover .plus-button {
+    display: flex; /* Mostrar botón al hacer hover en la imagen */
+}
 
 
 /* Sección con texto a la izquierda e imagen a la derecha */
