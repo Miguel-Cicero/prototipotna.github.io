@@ -11,10 +11,10 @@
     <nav>
         <div class="logo">HP</div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Proyects</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="hamburger">
             <div class="line"></div>
@@ -23,7 +23,7 @@
         </div>
     </nav>
 
-    <div class="video-container">
+    <div class="video-container" id="home">
         <div class="video-container">
     <video autoplay muted loop id="bgVideo">
         <source src="fondo.mp4" type="video/mp4">
@@ -40,7 +40,7 @@
         </div>
     
 
-    <div class="motivational-text">
+    <div class="motivational-text" id="projects">
         <h2>P R O Y E C T S</h2>
     </div>
 
@@ -75,7 +75,7 @@
 </div>
 
 
-    <div class="motivational-text">
+    <div class="motivational-text" id="about">
         <h2>A B O U T</h2>
     </div>
 
@@ -103,7 +103,7 @@
     </section>
 
 
-    <div class="motivational-text">
+    <div class="motivational-text" id="contact">
         <h2>C O N T A C T</h2>
     </div>
 
@@ -208,6 +208,23 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     moveCarousel();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const links = document.querySelectorAll('.nav-links a');
+
+    links.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent the default link behavior
+
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
 });
 
     </script>
