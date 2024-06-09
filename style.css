@@ -182,6 +182,43 @@ nav {
     font-size: 30px;
 }
 
+.custom-button {
+    position: relative;
+    padding: 15px 30px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid transparent;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 0;
+    transition: color 0.4s;
+}
+
+.custom-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    border: 2px solid white;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: transform 0.4s;
+    z-index: -1;
+}
+
+.custom-button:hover:before {
+    transform: scaleX(1);
+}
+
+.custom-button:hover {
+    color: white;
+}
+
 /* Estilos para el texto motivador */
 .motivational-text {
     text-align: center;
