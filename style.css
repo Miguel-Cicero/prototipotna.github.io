@@ -513,7 +513,7 @@ h1 {
         }
 
         .column h3 {
-            border-bottom: 1px solid #007BFF;
+            border-bottom: 1px solid white;
             padding-bottom: 10px;
             margin-bottom: 20px;
         }
@@ -529,7 +529,7 @@ h1 {
         }
 
         .column ul li:hover{
-            color: #007BFF;
+            color: grey;
             cursor: pointer;
         }
 
@@ -558,8 +558,8 @@ h1 {
         }
 
         .copyright {
-            background-color: #007BFF;
-            color: white;
+            background-color: white;
+            color: black;
             text-align: center;
             padding: 3px;
             padding: 2px;
