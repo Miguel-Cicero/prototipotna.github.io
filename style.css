@@ -233,7 +233,7 @@ nav {
 /* Estilos para el texto motivador */
 .motivational-text {
     text-align: left;
-    margin: 60px;
+    margin: 20px;
     background-color: #f8f8f8;
     font-family: Helvetica;
     font-style: normal;
@@ -396,6 +396,14 @@ nav {
     height: auto;
     object-fit: cover;
     transition: transform 0.3s ease; /* Transición suave al hacer hover */
+}
+
+.text-image-section .text-content .section-title {
+    display: block;
+    font-size: 35px; /* Tamaño del título */
+    font-weight: bold;
+    margin-bottom: 10px; /* Espacio entre el título y el texto */
+    color: white; /* Color del título */
 }
 
 @media (max-width: 768px) {
@@ -569,10 +577,9 @@ h1 {
 
 .contact-container {
     display: flex;
-    width: 90%;
-    max-width: 1200px;
+    width: 97%;
+    max-width: 1600px;
     background-color: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     margin: 0 auto;
     border: solid 1px white;
