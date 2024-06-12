@@ -1,0 +1,59 @@
+// Carrusel 1
+    const track = document.querySelector('.carousel-track');
+    const items = document.querySelectorAll('.carousel-item');
+    const totalWidth = Array.from(items).reduce((acc, item) => acc + item.getBoundingClientRect().width, 0);
+    let position = 0;
+
+    function moveCarousel() {
+        position -= 0.5; // Velocidad de movimiento (más pequeño para movimiento más lento)
+        if (Math.abs(position) >= totalWidth) {
+            position = 0;
+        }
+        track.style.transform = `translateX(${position}px)`;
+        requestAnimationFrame(moveCarousel);
+    }
+
+    moveCarousel();
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track');
+    const items = Array.from(document.querySelectorAll('.carousel-item'));
+    const totalWidth = items.reduce((acc, item) => acc + item.getBoundingClientRect().width, 0);
+    
+    // Clonar todos los elementos del carrusel y añadirlos al final del track
+    items.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+    });
+
+    let position = 0;
+    const resetPoint = -totalWidth;
+
+    function moveCarousel() {
+        position -= 0.5; // Velocidad de movimiento (más pequeño para movimiento más lento)
+        if (position <= resetPoint) {
+            position = 0;
+        }
+        track.style.transform = `translateX(${position}px)`;
+        requestAnimationFrame(moveCarousel);
+    }
+
+    moveCarousel();
+});
+
+// JavaScript para manejar el popup de imagen
+document.querySelectorAll('.carousel-item img').forEach(img => {
+    img.addEventListener('click', function() {
+        const popup = document.getElementById('image-popup');
+        const popupImg = document.getElementById('popup-img');
+        popupImg.src = this.src;
+        popup.style.display = 'block';
+    });
+});
+
+document.querySelector('.close-button').addEventListener('click', function() {
+    const popup = document.getElementById('image-popup');
+    popup.style.display = 'none';
+});

@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prototype</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="carousel.css">
+    <script src="carouseles.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <nav>
-        <div class="logo">HP</div>
+        <div class="logo">_</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -39,50 +41,52 @@
         </div>
     
 
-    <div class="motivational-text" id="projects">
-        <h2>P R O J E C T S</h2>
+    <div class="raleway-unique" id="projects">
+        <h2 class="raleway-unique" style="margin:0px;">PROJECTS</h2>
     </div>
 
-    <div class="carousel">
+
+<!-- Sección 1 -->
+<section>
+    <div class="carousel" id="carousel1"> <!-- Agregamos un ID para distinguir cada carousel -->
         <div class="carousel-track">
-            <div class="carousel-item">
-                <img src="image1.jpg" alt="Imagen 1" class="carousel-img">
-                <button class="plus-button">+</button>
-            </div>
-            <div class="carousel-item">
-                <img src="image2.jpg" alt="Imagen 2" class="carousel-img">
-                <button class="plus-button">+</button>
-            </div>
-            <div class="carousel-item">
-                <img src="image3.jpg" alt="Imagen 3" class="carousel-img">
-                <button class="plus-button">+</button>
-            </div>
-            <div class="carousel-item">
-                <img src="image4.jpg" alt="Imagen 3" class="carousel-img">
-                <button class="plus-button">+</button>
-            </div>
-            <div class="carousel-item">
-                <img src="image6.jpg" alt="Imagen 3" class="carousel-img">
-                <button class="plus-button">+</button>
-            </div>
-            <!-- Puedes agregar más elementos del carrusel aquí -->
+            <div class="carousel-item"><img src="image1.jpg"></div>
+            <div class="carousel-item"><img src="image2.jpg"></div>
+            <div class="carousel-item"><img src="image3.jpg"></div>
+            <div class="carousel-item"><img src="image4.jpg"></div>
+            <div class="carousel-item"><img src="image5.jpg"></div>
         </div>
-        <button style="display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;" class="custom-button">ver todos</button>
+        <button style="display: block; margin-left: 20px; margin-right: auto; margin-top: 20px; margin-bottom: 20px;" class="custom-button">ver todos</button>
     </div>
 
-<div id="image-popup" class="image-popup">
-    <span class="close-button">&times;</span>
-    <img class="popup-content" id="popup-img">
-</div>
+    <div id="image-popup" class="image-popup">
+        <span class="close-button">&times;</span>
+        <img class="popup-content" id="popup-img">
+    </div>
+</section>
+
+<!-- Sección 2 -->
+<section>
+    <div class="carousel" id="carousel2"> <!-- Agregamos un ID para distinguir cada carousel -->
+        <div class="carousel-track">
+            <div class="carousel-item"><img src="image1.jpg"></div>
+            <div class="carousel-item"><img src="image2.jpg"></div>
+            <div class="carousel-item"><img src="image3.jpg"></div>
+            <div class="carousel-item"><img src="image4.jpg"></div>
+            <div class="carousel-item"><img src="image5.jpg"></div>
+        </div>
+        <button style="display: block; margin-left: 20px; margin-right: auto; margin-top: 20px; margin-bottom: 20px;" class="custom-button">ver todos</button>
+    </div>
+</section>
+
+
+
 
 
     <section class="text-image-section">
         <div class="text-content">
         <p>
-            <span class="section-title">A B O U T</span>
+            <span class="raleway-unique" style="margin: 0px;">ABOUT</span><br>
             <br>
             HP strives to create innovative and accessible technology that enhances people's lives worldwide. With over 80 years of experience, our mission is to provide reliable solutions that drive a sustainable future and empower global communities.
             <br><br><button class="custom-button">Learn More</button>
@@ -110,7 +114,7 @@
 
 
         <div class="motivational-text" id="contact">
-            <h2 style="color: white !important; background-color:black;">C O N T A C T</h2>
+            <h2 class="raleway-unique">CONTACT</h2>
         </div>
 
         <div class="contact-container">
@@ -198,51 +202,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         hamburger.classList.toggle('toggle');
     });
-
-    // Carrusel
-    const track = document.querySelector('.carousel-track');
-    const items = document.querySelectorAll('.carousel-item');
-    const totalWidth = Array.from(items).reduce((acc, item) => acc + item.getBoundingClientRect().width, 0);
-    let position = 0;
-
-    function moveCarousel() {
-        position -= 0.5; // Velocidad de movimiento (más pequeño para movimiento más lento)
-        if (Math.abs(position) >= totalWidth) {
-            position = 0;
-        }
-        track.style.transform = `translateX(${position}px)`;
-        requestAnimationFrame(moveCarousel);
-    }
-
-    moveCarousel();
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('.carousel-track');
-    const items = Array.from(document.querySelectorAll('.carousel-item'));
-    const totalWidth = items.reduce((acc, item) => acc + item.getBoundingClientRect().width, 0);
-    
-    // Clonar todos los elementos del carrusel y añadirlos al final del track
-    items.forEach(item => {
-        const clone = item.cloneNode(true);
-        track.appendChild(clone);
-    });
-
-    let position = 0;
-    const resetPoint = -totalWidth;
-
-    function moveCarousel() {
-        position -= 0.5; // Velocidad de movimiento (más pequeño para movimiento más lento)
-        if (position <= resetPoint) {
-            position = 0;
-        }
-        track.style.transform = `translateX(${position}px)`;
-        requestAnimationFrame(moveCarousel);
-    }
-
-    moveCarousel();
-});
 
 
 // SCRIPT PARA EL NAV Y QUE LA WEB BAJE A MEDIDA QUE SE HACE CLICK EN LOS <a>
