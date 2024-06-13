@@ -69,13 +69,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Asignar eventos de clic a los elementos que abren el modal
-    document.querySelectorAll(".carousel-img").forEach(image => {
-        image.addEventListener("click", () => {
-            const title = "Título de la imagen"; // Puedes personalizar el título según la imagen seleccionada
-            const text = "Texto relacionado con la imagen seleccionada."; // Puedes personalizar el texto según la imagen seleccionada
-            openModal(title, text);
-        });
+document.querySelectorAll(".carousel-img").forEach(image => {
+    image.addEventListener("click", () => {
+        const title = "PROJECT"; // Título predeterminado o personalizado para el modal
+        const text = "HP strives to create innovative and accessible technology that enhances people's lives worldwide. With over 80 years of experience, our mission is to provide reliable solutions that drive a sustainable future and empower global communities.HP strives to create innovative and accessible technology that enhances people's lives worldwide. With over 80 years of experience, our mission is to provide reliable solutions that drive a sustainable future and empower global communities."; // Descripción o texto asociado a la imagen
+
+        // Obtener la ruta de la imagen y asignarla al modal
+        const imageUrl = image.getAttribute("src");
+
+        // Llamar a la función para abrir el modal y pasar los datos
+        openModal(title, text, imageUrl);
     });
+});
+
+// Función para abrir el modal con título, texto y la imagen
+function openModal(title, text, imageUrl) {
+    const modal = document.getElementById("fullscreen-modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalText = document.getElementById("modal-text");
+    const modalImage = document.getElementById("modal-image");
+
+    // Asignar los datos al modal
+    modalTitle.textContent = title;
+    modalText.textContent = text;
+    modalImage.setAttribute("src", imageUrl); // Asignar la imagen al atributo src del elemento img
+
+    // Mostrar el modal
+    modal.classList.add("show");
+}
 
     // Función para cerrar el modal
     const closeButton = document.querySelector(".close-button");
