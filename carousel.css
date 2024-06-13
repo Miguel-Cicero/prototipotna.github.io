@@ -1,9 +1,8 @@
-/* CAROUSEL 1 */
-
+/* Carousel CSS */
 .carousel {
     position: relative;
     max-width: 100%;
-    margin: 0px auto;
+    margin: 0 auto;
     overflow: hidden;
     z-index: 1;
     height: auto;
@@ -35,58 +34,65 @@
     cursor: pointer;
 }
 
-.image-popup {
-    display: none;
+/* Fullscreen Modal CSS */
+.fullscreen-modal {
+    display: none; /* Hidden by default */
     position: fixed;
-    z-index: 2;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.94);
-    animation: fadeIn 0.3s;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    animation: slide-up 0.5s ease;
 }
 
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+.fullscreen-modal.show {
+    display: flex;
 }
 
-.popup-content {
+.modal-content {
+    position: relative;
+    text-align: center;
+    color: white;
+    width: 100%;
+    height: 100%;
+    max-width: 90%;
+    max-height: 90%;
     margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: zoomIn 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-@keyframes zoomIn {
-    from {transform: scale(0.5) translate(-50%, -50%);}
-    to {transform: scale(1) translate(-50%, -50%);}
+.modal-content img {
+    width: 100%;
+    height: auto;
+    max-height: 70vh; /* Ensure the image doesn't exceed the viewport height */
+    object-fit: contain;
+}
+
+/* Animation */
+@keyframes slide-up {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 .close-button {
     position: absolute;
-    top: 50px;
-    right: 35px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: #bbb;
-    text-decoration: none;
+    top: 10px; /* Distancia desde el borde superior */
+    right: 10px; /* Distancia desde el borde derecho */
+    font-size: 50px;
     cursor: pointer;
+    color: white;
 }
 
-.carousel-item:hover .plus-button {
-    display: flex; /* Mostrar botón al hacer hover en la imagen */
+.close-button:hover {
+    color: #666;
 }

@@ -55,3 +55,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     moveCarousel2();
 });
+document.addEventListener('DOMContentLoaded', () => {
+    // Función para abrir el modal con texto
+    function openModal(title, text) {
+        const modalTitle = document.getElementById("modal-title");
+        const modalText = document.getElementById("modal-text");
+
+        modalTitle.textContent = title;
+        modalText.textContent = text;
+
+        const modal = document.getElementById("fullscreen-modal");
+        modal.classList.add("show");
+    }
+
+    // Asignar eventos de clic a los elementos que abren el modal
+    document.querySelectorAll(".carousel-img").forEach(image => {
+        image.addEventListener("click", () => {
+            const title = "Título de la imagen"; // Puedes personalizar el título según la imagen seleccionada
+            const text = "Texto relacionado con la imagen seleccionada."; // Puedes personalizar el texto según la imagen seleccionada
+            openModal(title, text);
+        });
+    });
+
+    // Función para cerrar el modal
+    const closeButton = document.querySelector(".close-button");
+    closeButton.addEventListener("click", () => {
+        const modal = document.getElementById("fullscreen-modal");
+        modal.classList.remove("show");
+    });
+
+    // Cerrar modal al hacer clic fuera del contenido
+    const modalContent = document.querySelector(".modal-content");
+    modalContent.addEventListener("click", (event) => {
+        if (event.target === modalContent) {
+            const modal = document.getElementById("fullscreen-modal");
+            modal.classList.remove("show");
+        }
+    });
+});

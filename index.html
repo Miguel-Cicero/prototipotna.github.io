@@ -48,42 +48,50 @@
 
 <!-- Sección 1 -->
 <section>
-    <div class="carousel" id="carousel1"> <!-- Agregamos un ID para distinguir cada carousel -->
-        <div class="carousel-track">
-            <div class="carousel-item"><img src="image1.jpg"></div>
-            <div class="carousel-item"><img src="image2.jpg"></div>
-            <div class="carousel-item"><img src="image3.jpg"></div>
-            <div class="carousel-item"><img src="image4.jpg"></div>
-            <div class="carousel-item"><img src="image5.jpg"></div>
+    <div class="carousel" id="carousel1">
+        <div class="carousel-track-container">
+            <div class="carousel-track">
+                <div class="carousel-item"><img src="image1.jpg" class="carousel-img" alt="Image1"></div>
+                <div class="carousel-item"><img src="image2.jpg" class="carousel-img" alt="Image2"></div>
+                <div class="carousel-item"><img src="image3.jpg" class="carousel-img" alt="Image3"></div>
+                <div class="carousel-item"><img src="image4.jpg" class="carousel-img" alt="Image4"></div>
+                <div class="carousel-item"><img src="image5.jpg" class="carousel-img" alt="Image5"></div>
+            </div>
         </div>
-        <button style="display: block; margin-left: 20px; margin-right: auto; margin-top: 20px; margin-bottom: 20px;" class="custom-button">ver todos</button>
-    </div>
-
-    <div id="image-popup" class="image-popup">
-        <span class="close-button">&times;</span>
-        <img class="popup-content" id="popup-img">
+        <button style="display: block; margin-left: 20px; margin-right: auto; margin-top: 20px; margin-bottom: 20px;" class="custom-button">Ver Todos</button>
     </div>
 </section>
 
 <!-- Sección 2 -->
 <section>
-    <div class="carousel" id="carousel2"> <!-- Agregamos un ID para distinguir cada carousel -->
-        <div class="carousel-track">
-            <div class="carousel-item"><img src="image1.jpg"></div>
-            <div class="carousel-item"><img src="image2.jpg"></div>
-            <div class="carousel-item"><img src="image3.jpg"></div>
-            <div class="carousel-item"><img src="image4.jpg"></div>
-            <div class="carousel-item"><img src="image5.jpg"></div>
+    <div class="carousel" id="carousel2">
+        <div class="carousel-track-container">
+            <div class="carousel-track">
+                <div class="carousel-item"><img src="image1.jpg" class="carousel-img" alt="Image6"></div>
+                <div class="carousel-item"><img src="image2.jpg" class="carousel-img" alt="Image7"></div>
+                <div class="carousel-item"><img src="image3.jpg" class="carousel-img" alt="Image8"></div>
+                <div class="carousel-item"><img src="image4.jpg" class="carousel-img" alt="Image9"></div>
+                <div class="carousel-item"><img src="image5.jpg" class="carousel-img" alt="Image10"></div>
+            </div>
         </div>
-        <button style="display: block; margin-left: 20px; margin-right: auto; margin-top: 20px; margin-bottom: 20px;" class="custom-button">ver todos</button>
+        <button style="display: block; margin-left: 20px; margin-right: auto; margin-top: 20px; margin-bottom: 20px;" class="custom-button">Ver todos</button>
     </div>
 </section>
 
+<!-- Fullscreen Modal -->
+<div id="fullscreen-modal" class="fullscreen-modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h1 id="modal-title">Título de prueba</h1>
+        <p id="modal-text">Texto de prueba para acompañar la imagen seleccionada.</p>
+    </div>
+</div>
 
 
 
 
-    <section class="text-image-section">
+
+    <section class="text-image-section"  id="about">
         <div class="text-content">
         <p>
             <span class="raleway-unique" style="margin: 0px;">ABOUT</span><br>
@@ -150,6 +158,10 @@
         </div>
     </div>
 
+
+
+
+
 <footer>
         <div class="column">
             <h3>Explore</h3>
@@ -181,77 +193,39 @@
     </div>
 
 
-
-
-
-    <script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Menú de hamburguesa
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const links = document.querySelectorAll('.nav-links li');
-
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-        links.forEach((link, index) => {
-            if (link.style.animation) {
-                link.style.animation = '';
-            } else {
-                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-            }
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+ 
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            hamburger.classList.toggle('toggle');
         });
-        hamburger.classList.toggle('toggle');
     });
 
 
-// SCRIPT PARA EL NAV Y QUE LA WEB BAJE A MEDIDA QUE SE HACE CLICK EN LOS <a>
-document.addEventListener('DOMContentLoaded', function () {
-    const links = document.querySelectorAll('.nav-links a');
+    // SCRIPT PARA EL NAV Y QUE LA WEB BAJE A MEDIDA QUE SE HACE CLICK EN LOS <a>
+    document.addEventListener('DOMContentLoaded', function () {
+        const links = document.querySelectorAll('.nav-links a');
 
-    links.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault(); // Prevent the default link behavior
+        links.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent the default link behavior
 
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
 
-            targetElement.scrollIntoView({
-                behavior: 'smooth'
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     });
-});
 
 
-//script para POP-UP
-document.addEventListener("DOMContentLoaded", function() {
-    // Obtener todos los elementos de imagen en el carrusel
-    var images = document.querySelectorAll(".carousel-img");
-    var popup = document.getElementById("image-popup");
-    var popupImg = document.getElementById("popup-img");
-    var closeButton = document.querySelector(".close-button");
 
-    // Añadir evento click a cada imagen
-    images.forEach(function(image) {
-        image.addEventListener("click", function() {
-            popup.style.display = "block";
-            popupImg.src = this.src;
-        });
-    });
 
-    // Añadir evento click al botón de cerrar
-    closeButton.addEventListener("click", function() {
-        popup.style.display = "none";
-    });
-
-    // Ocultar el pop-up si se hace click fuera de la imagen
-    popup.addEventListener("click", function(event) {
-        if (event.target == popup) {
-            popup.style.display = "none";
-        }
-    });
-});
-
-    </script>
+</script>
 </body>
 </html>
